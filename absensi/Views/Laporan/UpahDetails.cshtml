@@ -1,0 +1,40 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "UpahDetails";
+}
+
+<h2>@ViewBag.karyawan.nama | @ViewBag.karyawan.nip </h2>
+<h4> Jabatan @ViewBag.upah.nama_golongan | Gaji @ViewBag.upah.gaji Rupiah perjam </h4>
+<table class="table">
+    <tr>
+        <th>
+            <p>Bulan</p>
+        </th>
+        <th>
+            <p>Jam Bulanan</p>
+        </th>
+        <th>
+            <p>Gaji Bulan</p>
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.data)
+    {
+        <tr>
+            <td>
+                @Html.Raw(Json.Decode(Json.Encode(item))["dt"])
+            </td>
+            <td>
+                @Html.Raw(Json.Decode(Json.Encode(item))["data"])
+            </td>
+            <td>
+                @{
+                    var gaji = Convert.ToInt32(Json.Decode(Json.Encode(item))["data"]) * Convert.ToInt32(ViewBag.upah.gaji);
+                }
+                <p>@gaji</p>
+            </td>
+        </tr>
+    }
+
+</table>

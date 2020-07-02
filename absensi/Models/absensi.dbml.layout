@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="absensi">
+  <DataContextMoniker Name="/absensiDataContext" />
+  <nestedChildShapes>
+    <classShape Id="99eeedd8-92c7-483a-9e4f-600e0e974970" absoluteBounds="6.25, 0.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/absensiDataContext/absensi_absensi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f046c0d-a355-49d5-a2d5-8c5b404dd0b3" absoluteBounds="6.2650000000000006, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b1b1adf0-b4f9-4ddb-9466-5839111e22b4" absoluteBounds="3.5, 0.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/absensiDataContext/absensi_karyawan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f0a4209-7f2c-4761-ba8f-9f52ac77a2f4" absoluteBounds="3.5150000000000006, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.76044840494792); (6.25 : 1.76044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/absensiDataContext/absensi_karyawan/absensi_karyawan_absensi_absensi" />
+      <nodes>
+        <classShapeMoniker Id="b1b1adf0-b4f9-4ddb-9466-5839111e22b4" />
+        <classShapeMoniker Id="99eeedd8-92c7-483a-9e4f-600e0e974970" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="13b8d490-8e89-435f-b294-51e2d9613502" absoluteBounds="0.75, 1.125, 2, 1.3862939453125007">
+      <DataClassMoniker Name="/absensiDataContext/absensi_upah" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31efad85-cb86-4842-ad97-95fe4c3566a5" absoluteBounds="0.76500000000000012, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/absensiDataContext/absensi_upah/absensi_upah_absensi_karyawan" />
+      <nodes>
+        <classShapeMoniker Id="13b8d490-8e89-435f-b294-51e2d9613502" />
+        <classShapeMoniker Id="b1b1adf0-b4f9-4ddb-9466-5839111e22b4" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

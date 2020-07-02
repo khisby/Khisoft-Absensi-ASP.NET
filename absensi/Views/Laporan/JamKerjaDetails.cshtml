@@ -1,0 +1,45 @@
+﻿@model IEnumerable<absensi.Models.absensi_absensi>
+
+@{
+    ViewBag.Title = "JamKerjaDetails";
+}
+
+<h2>Jam Kerja @ViewBag.karyawan.nama | @ViewBag.karyawan.nip</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tanggal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jam_masuk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jam_keluar)
+        </th>
+        <th>
+            <p>Jam Kerja</p>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tanggal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jam_masuk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jam_keluar)
+        </td>
+        <td>
+            @{
+                TimeSpan difference = item.jam_keluar.Subtract(item.jam_masuk);
+            }
+            <p>@difference</p>
+        </td>
+    </tr>
+ }
+
+</table>

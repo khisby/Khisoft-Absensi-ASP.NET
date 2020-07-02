@@ -1,0 +1,51 @@
+﻿@model IEnumerable<absensi.Models.absensi_absensi>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tanggal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jam_masuk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jam_keluar)
+        </th>
+        <th>
+            <p>Nama Karyawan</p>
+        </th>
+        <th>
+            <p>NIP Karyawan</p>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.tanggal)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.jam_masuk)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.jam_keluar)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.absensi_karyawan.nama)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.absensi_karyawan.nip)
+    </td>
+</tr>
+}
+
+</table>

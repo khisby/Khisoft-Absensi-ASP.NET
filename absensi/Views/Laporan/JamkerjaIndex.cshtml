@@ -1,0 +1,40 @@
+﻿@model IEnumerable<absensi.Models.absensi_karyawan>
+
+@{
+    ViewBag.Title = "JamkerjaIndex";
+}
+
+<h2>Laporan Jam Kerja</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alamat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alamat)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "JamKerjaDetails", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

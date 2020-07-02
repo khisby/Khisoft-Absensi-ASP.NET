@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="absensi" Class="absensiDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GL3HD5H\SQLEXPRESS;Initial Catalog=absensi;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="absensiConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[absensi.absensi]" Member="absensi_absensis">
+    <Type Name="absensi_absensi">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="jam_masuk" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="jam_keluar" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="id_karyawan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="absensi_karyawan_absensi_absensi" Member="absensi_karyawan" ThisKey="id_karyawan" OtherKey="id" Type="absensi_karyawan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[absensi.karyawan]" Member="absensi_karyawans">
+    <Type Name="absensi_karyawan">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nip" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nama" Type="System.String" DbType="NChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="alamat" Type="System.String" DbType="NChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="id_upah" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="absensi_karyawan_absensi_absensi" Member="absensi_absensis" ThisKey="id" OtherKey="id_karyawan" Type="absensi_absensi" />
+      <Association Name="absensi_upah_absensi_karyawan" Member="absensi_upah" ThisKey="id_upah" OtherKey="id" Type="absensi_upah" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[absensi.upah]" Member="absensi_upahs">
+    <Type Name="absensi_upah">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nama_golongan" Type="System.String" DbType="NChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="gaji" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="absensi_upah_absensi_karyawan" Member="absensi_karyawans" ThisKey="id" OtherKey="id_upah" Type="absensi_karyawan" />
+    </Type>
+  </Table>
+</Database>
